@@ -46,7 +46,6 @@ test('extracts matching params', () => {
 test('respects a nested "exactly" route', () => {
   const location = { pathname: '/qux/corge' }
   const { matchedRoutes } = matchRoutesToLocation(routes, location)
-  console.log(matchedRoutes); // eslint-disable-line
   expect(matchedRoutes.length).toEqual(1)
   expect(matchedRoutes[0]).toEqual(routes[0].routes[1].routes[0])
 })
