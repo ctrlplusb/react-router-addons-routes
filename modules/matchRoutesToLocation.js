@@ -12,8 +12,9 @@ const matchRoutesToLocation = (routes, location, matchedRoutes=[], params={}, pa
     const match = matchPattern(nestedPattern, location)
 
     if (match) {
-      matchedRoutes.push(route)
-
+      if (route.exactly ? match.isExact : true) {
+        matchedRoutes.push(route)
+      }
       if (match.params) {
         Object.keys(match.params).forEach(key => params[key] = match.params[key])
       }
